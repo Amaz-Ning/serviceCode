@@ -6,17 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "deploy-dev": "cross-env NODE_ENV=dev node ./deploy/deploy",
+    "deploy-prod": "cross-env NODE_ENV=prod node ./deploy/deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.1",
+    "ora": "^4.0.3",
     "sass-loader": "^8.0.2",
+    "scp2": "^0.5.0",
     "style-loader": "^1.1.3",
     "url-loader": "^3.0.0",
     "vue": "^2.6.11",
