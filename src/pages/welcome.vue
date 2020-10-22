@@ -19,14 +19,41 @@
             clickMode="push"
         >
         </vue-particles>
-        <button class="button" @click="entryIndex">welcome</button>
+        <div class="container">
+            <Form ref="form" label-width="80px">
+                <FormItem style="color: red" label="账号">
+                    <Input v-model="form.name" />
+                </FormItem>
+                <FormItem label="密码">
+                    <Input v-model="form.password" />
+                </FormItem>
+                <FormItem>
+                    <Button type="primary" @click="onSubmit">登陆</Button>
+                </FormItem>
+            </Form>
+        </div>
+        <!-- <button class="button" @click="entryIndex">welcome</button> -->
+        <!-- <Button class="button" type="primary">123</Button> -->
     </div>
 </template>
 
 <script>
+import {Button, Form, FormItem, Input} from 'element-ui';
+import {loginIn} from '../api/api'
 export default {
     data() {
-        return {}
+        return {
+            form: {
+                name: '',
+                password: ''
+            }
+        }
+    },
+    components: {
+        Button,
+        Form,
+        FormItem,
+        Input
     },
     computed: {},
     created() {},
@@ -34,35 +61,30 @@ export default {
     methods: {
         entryIndex() {
             this.$router.push('/index')
+        },
+        onSubmit() {
+            loginIn(this.form.name, this.form.password).then(res => {
+                console.log(res);
+            })
         }
     }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .welcome {
     position: relative;
     background: url('../assets/image/timg.jpeg') no-repeat center center;
-    .button {
-        cursor: pointer;
-        width: 98px;
-        height: 36px;
-        border: 1px solid #ccc; //自定义边框
-        outline: none; //消除默认点击蓝色边框效果
-        position: absolute;
-        background: none;
-        color: #ccc;
+    .container {
+        width: 500px;
+        height: 200px;
         border-radius: 3px;
-        top: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
         bottom: 0;
-        left: 0px;
         right: 0;
         margin: auto;
-        transition: all 0.3s;
-    }
-    .button:hover {
-        border-color: #198ae7;
-        color: #198ae7;
     }
 }
 </style>

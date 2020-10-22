@@ -1,12 +1,12 @@
 const axios = require('axios')
-
-function getUserInfo() {
-    return axios.get('http://localhost:9000', {
-        username: 'wangning',
-        password: '123'
+function loginIn(userName, userPassword) {
+    return axios.get('/api/users/login',{
+        params: {
+            userName,
+            userPassword
+        }
     })
 }
-
 module.exports = {
-    getUserInfo
+    loginIn
 }
