@@ -25,10 +25,11 @@
                     <Input v-model="form.name" />
                 </FormItem>
                 <FormItem label="密码">
-                    <Input v-model="form.password" />
+                    <Input type='password' v-model="form.password" />
                 </FormItem>
                 <FormItem>
-                    <Button type="primary" @click="onSubmit">登陆</Button>
+                    <Button type="primary" @click="onLogin">登陆</Button>
+                    <Button type="primary" @click="onRegister">注册</Button>
                 </FormItem>
             </Form>
         </div>
@@ -39,7 +40,7 @@
 
 <script>
 import {Button, Form, FormItem, Input} from 'element-ui';
-import {loginIn} from '../api/api'
+import {loginIn, register} from '../api/api'
 export default {
     data() {
         return {
@@ -62,8 +63,13 @@ export default {
         entryIndex() {
             this.$router.push('/index')
         },
-        onSubmit() {
+        onLogin() {
             loginIn(this.form.name, this.form.password).then(res => {
+                console.log(res);
+            })
+        },
+        onRegister() {
+            register(this.form.name, this.form.password).then(res => {
                 console.log(res);
             })
         }
