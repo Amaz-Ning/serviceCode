@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Components from '../src/pages'
 Vue.use(VueRouter)
 const route = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
