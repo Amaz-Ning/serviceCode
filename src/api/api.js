@@ -1,6 +1,6 @@
 const axios = require('axios')
 function loginIn(userName, userPassword) {
-    return axios.get('http://42.192.134.212:9001/index',{
+    return axios.get('http://42.192.134.212:9001',{
         // userName,
         // userPassword
     })
