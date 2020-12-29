@@ -1,0 +1,36 @@
+{
+    "deploy": {
+        // 包设置
+        "packages": [{
+            // 上传哪些文件
+            "files": [
+                "**/*"
+            ],
+            // 忽略哪些文件
+            "exclude": [
+                "node_modules/**",
+                ".git/**",
+                ".vscode/**",
+                "**/node_modules/**"
+            ],
+            // 是否保存 ctrl + s的时候就触发部署
+            "deployOnSave": false
+        }],
+        // 部署目的地
+        "targets": [{
+            // 方式
+            "type": "sftp",
+            "name": "tecentServer",
+            // 目标文件夹
+            "dir": "/root/source/deploy_demo",
+            // 目标地址
+            "host": "42.192.134.212",
+            // 端口
+            "port": 22,
+            // 用户名
+            "user": "root",
+            // 密钥文件
+            "privareKey": "/Users/wangning/.ssh/id_rsa"
+        }]
+    }
+}

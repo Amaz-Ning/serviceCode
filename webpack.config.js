@@ -6,7 +6,7 @@ module.exports = {
   entry: './main.js',
   output: {
     filename: '[name]-[chunkhash:8].js',
-    path: path.resolve(__dirname, '../html')
+    path: path.resolve(__dirname, './build')
   },
   module: {
     rules: [
