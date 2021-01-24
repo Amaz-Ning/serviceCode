@@ -6,7 +6,7 @@ module.exports = {
   entry: './main.js',
   output: {
     filename: '[name]-[chunkhash:8].js',
-    path: path.resolve(__dirname, './build')
+    path: path.resolve(__dirname, '/usr/local/nginx/html/welcome')
   },
   module: {
     rules: [
@@ -33,7 +33,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
-      filename: 'index.html'
+      filename: 'haha.html'
     })
   ],
   devServer: {
