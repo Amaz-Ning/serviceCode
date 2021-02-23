@@ -1,12 +1,14 @@
 const axios = require('axios')
 function loginIn(userName, userPassword) {
-    return axios.get('http://42.192.134.212:9001',{
-        // userName,
-        // userPassword
+    return axios.get('/api/login',{
+        params: {
+            userName,
+            userPassword
+        }
     })
 }
 function register(userName, userPassword) {
-    return axios.post('http://42.192.134.212:9001/users/register', {
+    return axios.post('/api/users/register', {
         userName,
         userPassword
     })

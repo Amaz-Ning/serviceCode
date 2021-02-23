@@ -33,8 +33,6 @@
                 </FormItem>
             </Form>
         </div>
-        <!-- <button class="button" @click="entryIndex">welcome</button> -->
-        <!-- <Button class="button" type="primary">123</Button> -->
     </div>
 </template>
 
@@ -58,14 +56,17 @@ export default {
     },
     computed: {},
     created() {},
-    mounted() {},
+    mounted() {
+    },
     methods: {
         entryIndex() {
             this.$router.push('/index')
         },
         onLogin() {
             loginIn(this.form.name, this.form.password).then(res => {
-                console.log(res);
+                if (res.data.code == '200') {
+                    this.$router.push('/index')
+                }
             })
         },
         onRegister() {

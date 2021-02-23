@@ -19,7 +19,7 @@ export default {
 .box {
     height: 100%;
     .view {
-        
+        width: 100%;
         height: 100%;
     }
 }
